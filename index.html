@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>フロアマップ</title>
+
+<style>
+body{
+    margin:0;
+    font-family:sans-serif;
+    background:#f5f5f5;
+}
+
+#map-container{
+    position:relative;
+    max-width:1000px;
+    margin:auto;
+}
+
+#map{
+    width:100%;
+    display:block;
+}
+
+/* 教室ボタン */
+.room{
+    position:absolute;
+    background:rgba(255,0,0,0);
+    border:none;
+    cursor:pointer;
+}
+
+/* ポップアップ */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.8);
+    z-index:999;
+}
+
+.modal-content{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:min(90vw,700px);
+    max-height:90vh;
+    overflow:auto;
+}
+
+.modal-content img{
+    width:100%;
+    border-radius:10px;
+}
+
+.close{
+    position:absolute;
+    top:10px;
+    right:15px;
+    color:white;
+    font-size:40px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div id="map-container">
+
+<img src="floormap.png" id="map">
+
+<!-- 501 -->
+<button class="room"
+style="
+left:4%;
+top:35%;
+width:12%;
+height:8%;
+"
+onclick="openModal('501.png')"></button>
+
+<!-- 502 -->
+<button class="room"
+style="
+left:12%;
+top:14%;
+width:10%;
+height:7%;
+"
+onclick="openModal('502.png')"></button>
+
+<!-- 503 -->
+<button class="room"
+style="
+left:22%;
+top:14%;
+width:10%;
+height:7%;
+"
+onclick="openModal('503〜505.png')"></button>
+
+<!-- 504 -->
+<button class="room"
+style="
+left:33%;
+top:14%;
+width:10%;
+height:7%;
+"
+onclick="openModal('503〜505.png')"></button>
+
+<!-- 505 -->
+<button class="room"
+style="
+left:44%;
+top:14%;
+width:10%;
+height:7%;
+"
+onclick="openModal('503〜505.png')"></button>
+
+<!-- 201 -->
+<button class="room"
+style="
+left:9%;
+top:50%;
+width:12%;
+height:7%;
+"
+onclick="openModal('201.png')"></button>
+
+<!-- 202 -->
+<button class="room"
+style="
+left:12%;
+top:42%;
+width:12%;
+height:7%;
+"
+onclick="openModal('202.png')"></button>
+
+</div>
+
+<div class="modal" id="modal">
+<div class="close" onclick="closeModal()">×</div>
+
+<div class="modal-content">
+<img id="modalImage">
+</div>
+
+</div>
+
+<script>
+function openModal(img){
+    document.getElementById("modal").style.display="block";
+    document.getElementById("modalImage").src=img;
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+}
+</script>
+
+</body>
+</html>
