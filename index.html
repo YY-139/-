@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>フロアマップ</title>
+<title>デジタルフロアマップ</title>
 
 <style>
 body{
@@ -27,8 +27,8 @@ body{
 /* 教室ボタン */
 .room{
     position:absolute;
-    background:rgba(255,0,0,0);
-    border:none;
+    background:rgba(255,0,0,0.3);
+    border:2px solid red;
     cursor:pointer;
 }
 
@@ -155,7 +155,6 @@ onclick="openModal('202.png')"></button>
 
 <script>
 function openModal(img){
-    alert("押された！");
     document.getElementById("modal").style.display="block";
     document.getElementById("modalImage").src=img;
 }
